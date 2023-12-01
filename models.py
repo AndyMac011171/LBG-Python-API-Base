@@ -18,7 +18,7 @@ class ItemModel(db.Model):
     colour = db.Column(db.String(STRING))
     price = db.Column(db.Float())
 
-    def __init__(self, _id: int, description: str, name: str, price: float):
+    def __init__(self, _id: int, description: str, colour: str, name: str, price: float):
         """
         class constructor
         """
