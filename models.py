@@ -15,6 +15,7 @@ class ItemModel(db.Model):
     _id = db.Column(db.Integer, primary_key=True)
     description = db.Column(db.String(TEXT))
     name = db.Column(db.String(STRING))
+    colour = db.Column(db.String(STRING))
     price = db.Column(db.Float())
 
     def __init__(self, _id: int, description: str, name: str, price: float):
@@ -23,6 +24,7 @@ class ItemModel(db.Model):
         """
         self.description = description
         self.name = name
+        self.colour = colour
         self.price = price
         self._id = _id
 
@@ -30,7 +32,7 @@ class ItemModel(db.Model):
         """
         string representation method for object
         """
-        return f"'description':{self.description},'name':{self.name},'price':{self.price},'_id':{self._id}"
+        return f"'description':{self.description},'name':{self.name},'colour':{self.colour},'price':{self.price},'_id':{self._id}"
 
     @property
     def serialize(self) -> dict[str, str | int | float]:
@@ -40,6 +42,7 @@ class ItemModel(db.Model):
         return {
             'description': self.description,
             'name': self.name,
+            'colour': self.colour,
             'price': self.price,
             '_id': self._id
         }
