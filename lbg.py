@@ -30,15 +30,16 @@ db.init_app(app)
 _id = 1
 
 
-def item_builder(item_name: str, item_description: str, item_price: float, item_id: int) -> dict:
+def item_builder(item_name: str, item_description: str, item_colour: str, item_price: float, item_id: int) -> dict:
     """
     Function to build an item
-    takes in a name, description, price, and id
+    takes in a name, description, colour, price, and id
     uses standard library dictionary to create an item object
     """
     item: dict[str | int | float] = {
         "name": item_name,
         "description": item_description,
+        "colour": item_colour,
         "price": item_price,
         "_id": item_id,
     }
@@ -70,8 +71,9 @@ def create():
     posted_data = request.get_json()
     name = posted_data['name']
     description = posted_data['description']
+    colour = posted_data['colour']
     price = posted_data['price']
-    item = item_builder(name, description, float(price), int(_id))
+    item = item_builder(name, description, colour, float(price), int(_id))
 
     # insert the item into our Database
     item = ItemModel(**item)
@@ -154,8 +156,9 @@ def update_one(_id):
     posted_data = request.get_json()
     name = posted_data['name']
     description = posted_data['description']
+    colour = posted_data['colour']
     price = posted_data['price']
-    updated_item = item_builder(name, description, price, int(_id))
+    updated_item = item_builder(name, description, colour, price, int(_id))
 
     # find data in database BY using the id
     item = ItemModel.query.filter_by(_id=int(_id)).first()
