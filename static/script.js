@@ -33,6 +33,7 @@ const get = () => {
 const post = () => {
   axios.post(`/create`, {   name : DOM.inputName.value,
                             description : DOM.inputDescription.value, 
+                            colour : DOM.inputColour.value,
                             price : DOM.inputPrice.value})
     .then((response) => {
       console.log(response);
@@ -56,6 +57,7 @@ const getOne = () => {
 const put = () => { 
   axios.put(`/update/${DOM.inputUpdateID.value}`, { name : DOM.inputUpdateName.value,
                                                     description : DOM.inputUpdateDescription.value,
+                                                    colour : DOM.inputUpdateColour.value,
                                                     price : DOM.inputUpdatePrice.value})
     .then((response) => {
      console.log(response);
