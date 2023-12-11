@@ -61,9 +61,10 @@ pipeline {
                         echo "Unrecognised branch"
                         '''
                     }
-		        }
+		            }
 
-                       }
+                }
+        }
         stage('Push') {
             steps {
                 script {
