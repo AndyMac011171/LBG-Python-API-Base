@@ -9,6 +9,7 @@ pipeline {
                         sh '''
                             ssh -i ~/.ssh/id_rsa jenkins@10.154.0.50 << EOF
 
+                            echo "executing main branch"
                             docker network create project-network || echo "Network Already Exists"
 
                             docker stop flask-app || echo "flask-app not running"
@@ -22,7 +23,8 @@ pipeline {
                     } else if (env.GIT_BRANCH == 'origin/dev') {
                         sh '''
                             ssh -i ~/.ssh/id_rsa jenkins@10.154.0.57 << EOF
-
+                           
+                            echo "executing dev branch"
                             docker network create project-network || echo "Network Already Exists"
 
                             docker stop flask-app || echo "flask-app not running"
