@@ -89,7 +89,6 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                steps {
                 script {
 			        if (env.GIT_BRANCH == 'origin/main') 
                     {
@@ -110,9 +109,9 @@ pipeline {
                         '''
                     }
 		        }
-           }
-                
+              
             }
+                
         }
         stage('Cleanup') {
             steps {
