@@ -94,12 +94,12 @@ pipeline {
                     {
                         sh '''
                             ssh -i ~/.ssh/id_rsa jenkins@10.154.0.50 << EOF
-
                             docker run -d --name flask-app --network project-network docker.io/andymac011171/python-api
                             docker run -d -p 80:80 --name nginx --network project-network docker.io/andymac011171/nginx-jenk:latest
                         '''
                     } else if (env.GIT_BRANCH == 'origin/dev') {
                         sh '''
+                            ssh -i ~/.ssh/id_rsa jenkins@10.154.0.57 << EOF
                             docker run -d --name flask-app --network project-network docker.io/andymac011171/python-api
                             docker run -d -p 80:80 --name nginx --network project-network docker.io/andymac011171/nginx-jenk:latest
                         '''
