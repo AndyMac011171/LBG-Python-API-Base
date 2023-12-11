@@ -40,9 +40,6 @@ pipeline {
                     }
 		        }
            }
-
-
-        }
         }
         stage('Build') {
             steps {
@@ -129,6 +126,7 @@ pipeline {
                 sh '''
                 docker system prune -f 
                 '''
+            }
         }
     }
 }
