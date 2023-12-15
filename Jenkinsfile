@@ -68,12 +68,12 @@ pipeline {
                     if (env.GIT_BRANCH == "origin/main") {
                         sh '''
                         kubectl apply -n prod -f ./kubernetes
-                        kubectl set image deployment/flask-deployment flask-container=andymac011171/python-api
+                        kubectl set image deployment/flask-service flask-container=andymac011171/python-api
                         '''
                     } else if (env.GIT_BRANCH == "origin/dev") {
                         sh '''
                         kubectl apply -n dev -f ./kubernetes
-                        kubectl set image deployment/flask-deployment flask-container=andymac011171/python-api
+                        kubectl set image deployment/flask-service flask-container=andymac011171/python-api
                         '''
                     } else {
                         sh '''
