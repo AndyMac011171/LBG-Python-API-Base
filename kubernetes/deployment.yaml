@@ -21,7 +21,7 @@ spec:
   replicas: 2
   selector:
     matchLabels:
-      app: flask
+      app: flask-api
   strategy:
     rollingUpdate:
       maxSurge: 10%
